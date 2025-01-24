@@ -1,24 +1,34 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Outlet } from "react-router";
 import { ReactRouterAppProvider } from "@toolpad/core/react-router";
 import type { Branding, Navigation } from "@toolpad/core/AppProvider";
 import Logo from "./components/Branding/Logo";
 import theme from "../theme";
+import {
+  ContactPage,
+  Dashboard,
+  Person,
+  WorkHistory,
+} from "@mui/icons-material";
 
 const NAVIGATION: Navigation = [
   {
-    kind: "header",
-    title: "Main items",
+    title: "Home",
+    icon: <Dashboard />,
   },
   {
-    title: "Dashboard",
-    icon: <DashboardIcon />,
+    segment: "about",
+    title: "About",
+    icon: <Person />,
   },
   {
-    segment: "orders",
-    title: "Orders",
-    icon: <ShoppingCartIcon />,
+    segment: "works",
+    title: "Works",
+    icon: <WorkHistory />,
+  },
+  {
+    segment: "contact",
+    title: "Contact",
+    icon: <ContactPage />,
   },
 ];
 
@@ -29,7 +39,11 @@ const BRANDING: Branding = {
 
 export default function App() {
   return (
-    <ReactRouterAppProvider theme={theme} navigation={NAVIGATION} branding={BRANDING}>
+    <ReactRouterAppProvider
+      theme={theme}
+      navigation={NAVIGATION}
+      branding={BRANDING}
+    >
       <Outlet />
     </ReactRouterAppProvider>
   );
