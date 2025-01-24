@@ -9,6 +9,7 @@ import {
   Person,
   WorkHistory,
 } from "@mui/icons-material";
+import { useMediaQuery } from "@mui/material";
 
 const NAVIGATION: Navigation = [
   {
@@ -32,12 +33,14 @@ const NAVIGATION: Navigation = [
   },
 ];
 
-const BRANDING: Branding = {
-  title: "AYABULELA MAHLATHINI",
-  logo: <Logo />,
-};
-
 export default function App() {
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const BRANDING: Branding = {
+    title: isMobile ? "" : "AYABULELA MAHLATHINI",
+    logo: <Logo />,
+  };
+
   return (
     <ReactRouterAppProvider
       theme={theme}

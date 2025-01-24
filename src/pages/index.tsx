@@ -10,6 +10,8 @@ import {
   Skeleton,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import ProfilePicture from "../assets/profile_picture_grey.jpg";
 import {
@@ -32,11 +34,23 @@ import { useNavigate } from "react-router";
 
 export default function HomePage() {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
+  const iconFontSize = { fontSize: { xs: 60, lg: 80 } };
+
   return (
     <Grid container spacing={2}>
       <Grid container size={12}>
-        <Grid size={6}>
-          <Card elevation={3} sx={{ display: "flex", p: 2, borderRadius: 10 }}>
+        <Grid size={{ xs: 12, lg: 6 }}>
+          <Card
+            elevation={3}
+            sx={{
+              display: isMobile ? "block" : "flex",
+              p: 2,
+              borderRadius: 10,
+            }}
+          >
             {ProfilePicture ? (
               <CardActionArea onClick={() => navigate("/about")}>
                 <CardMedia
@@ -84,7 +98,7 @@ export default function HomePage() {
             </Box>
           </Card>
         </Grid>
-        <Grid size={6} container spacing={2}>
+        <Grid size={{ xs: 12, lg: 6 }} container spacing={2}>
           <Grid size={12}>
             <ScrollingTextContainer
               sx={{ p: 2, borderRadius: 10, flexDirection: "row" }}
@@ -110,13 +124,13 @@ export default function HomePage() {
           <DashboardCard
             title={"Resume"}
             description={"MORE ABOUT ME"}
-            icon={<Feed sx={{ fontSize: 80 }} />}
+            icon={<Feed sx={iconFontSize} />}
             size={6}
           />
           <DashboardCard
             title={"Projects"}
             description={"SHOWCASE"}
-            icon={<Work sx={{ fontSize: 80 }} />}
+            icon={<Work sx={iconFontSize} />}
             size={6}
           />
         </Grid>
@@ -125,13 +139,13 @@ export default function HomePage() {
         <DashboardCard
           title={"Services"}
           description={"SPECIALIZATION"}
-          icon={<DesignServices sx={{ fontSize: 80 }} />}
+          icon={<DesignServices sx={iconFontSize} />}
           size={3}
         />
         <DashboardCard
           title={"Activities"}
           description={"MY EXTRA TIME"}
-          icon={<MoreHoriz sx={{ fontSize: 80 }} />}
+          icon={<MoreHoriz sx={iconFontSize} />}
           size={3}
         />
         <DashboardCard
@@ -140,10 +154,10 @@ export default function HomePage() {
           size={6}
           icon={
             <Stack direction="row" spacing={2}>
-              <LinkedIn sx={{ fontSize: 80 }} />
-              <GitHub sx={{ fontSize: 80 }} />
-              <Facebook sx={{ fontSize: 80 }} />
-              <Instagram sx={{ fontSize: 80 }} />
+              <LinkedIn sx={iconFontSize} />
+              <GitHub sx={iconFontSize} />
+              <Facebook sx={iconFontSize} />
+              <Instagram sx={iconFontSize} />
             </Stack>
           }
         />

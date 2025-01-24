@@ -25,7 +25,7 @@ const DashboardCard = ({
   size,
 }: DashboardCardProps) => {
   return (
-    <Grid size={size}>
+    <Grid size={{ xs: 12, lg: size }}>
       <Card
         sx={{ p: 3, borderRadius: 10, height: "100%", alignContent: "center" }}
         elevation={3}
