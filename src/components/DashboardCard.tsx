@@ -1,65 +1,77 @@
 import { AdsClickOutlined } from "@mui/icons-material";
 import {
   Card,
-  CardActionArea,
-  CardActions,
   CardContent,
+  CardMedia,
   Grid2 as Grid,
   IconButton,
   Stack,
   Typography,
 } from "@mui/material";
 import { ReactNode } from "react";
+import { useNavigate } from "react-router";
 
 type DashboardCardProps = {
   title: string;
   description: string;
-  icon: ReactNode;
-  size: number;
+  media: ReactNode;
+  size?: number;
+  pathTo?: string;
 };
 
 const DashboardCard = ({
   title,
   description,
-  icon,
-  size,
+  media: icon,
+  pathTo,
+  size = 3,
 }: DashboardCardProps) => {
+  const navigate = useNavigate();
   return (
-    <Grid size={{ xs: 12, lg: size }}>
-      <Card
-        sx={{ p: 3, borderRadius: 10, height: "100%", alignContent: "center" }}
-        elevation={3}
+    <Card
+      size={{ xs: 12, lg: size }}
+      component={Grid}
+      onClick={() => pathTo && navigate(pathTo)}
+      sx={{
+        borderRadius: 10,
+        alignContent: "center",
+      }}
+      elevation={3}
+    >
+      <CardMedia
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          p: { xs: 2, lg: 1 },
+          color: "text.secondary",
+        }}
       >
-        <CardActionArea sx={{ display: "flex", justifyContent: "center" }}>
-          {icon}
-        </CardActionArea>
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <Stack>
-            <Typography
-              variant="body2"
-              textTransform="uppercase"
-              sx={{ color: "text.secondary" }}
-            >
-              {description}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              {title}
-            </Typography>
-          </Stack>
-          <CardActions sx={{ justifyContent: "flex-end" }}>
-            <IconButton>
-              <AdsClickOutlined />
-            </IconButton>
-          </CardActions>
-        </CardContent>
-      </Card>
-    </Grid>
+        {icon}
+      </CardMedia>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Stack>
+          <Typography
+            variant="body2"
+            textTransform="uppercase"
+            sx={{ color: "text.secondary" }}
+          >
+            {description}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+        </Stack>
+        <IconButton onClick={() => pathTo && navigate(pathTo)}>
+          <AdsClickOutlined sx={{ color: "text.secondary", fontSize: 40 }} />
+        </IconButton>
+      </CardContent>
+    </Card>
   );
 };
 
