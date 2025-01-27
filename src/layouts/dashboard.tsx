@@ -14,6 +14,8 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
+import { Footer } from "../components/Footer";
+import { CapitalizedText, TextContainer } from "../components/Texts";
 
 export default function Layout() {
   const theme = useTheme();
@@ -34,7 +36,7 @@ export default function Layout() {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+    console.debug(container);
   };
 
   const options: ISourceOptions = useMemo(
@@ -101,6 +103,17 @@ export default function Layout() {
             options={options}
           />
           <Outlet />
+          <Footer>
+            <TextContainer elevation={3}>
+              <CapitalizedText
+                fontSize={{ xs: "0.65em", lg: "0.8em" }}
+                textAlign="center"
+                width="100%"
+              >
+                © {new Date().getFullYear()} Aya Mash. All rights reserved.
+              </CapitalizedText>
+            </TextContainer>
+          </Footer>
         </PageContainer>
         {isMobile && (
           <Paper

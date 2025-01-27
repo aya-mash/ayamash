@@ -29,4 +29,5 @@ export const ScrollingText = styled(Typography)(({ theme }) => ({
 
 export const CapitalizedText = styled(Typography)(({ theme }) => ({
   ...getTextStyle(theme),
+  color: theme.palette.text.primary,
 }));

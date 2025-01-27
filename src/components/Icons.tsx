@@ -7,7 +7,7 @@ import {
   WhatsApp,
 } from "@mui/icons-material";
 
-const iconStyle = { fontSize: { xs: 20, lg: 80 }, color: "text.secondary" };
+const iconStyle = { fontSize: { xs: 20, lg: 80 } };
 
 export const socialLinks = [
   {

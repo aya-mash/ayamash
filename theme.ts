@@ -1,15 +1,80 @@
 "use client";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, Theme } from "@mui/material/styles";
+
+const getClickableStyle = ({ theme }: { theme: Theme }) => ({
+  "&:hover": {
+    transform: "scale(1.05)",
+    color: theme.palette.mode === "light" ? "#121212" : "#fff",
+  },
+});
+
+const getGradientBackground = ({ palette }: Theme) => ({
+  backgroundImage:
+    palette.mode === "light"
+      ? "linear-gradient(to right, #f8f8f8, #f0f0f0, #e8e8e8)"
+      : "linear-gradient(to right, #121212, #141414, #1f1f1f)",
+});
 
 const theme = createTheme({
+  transitions: { duration: { enteringScreen: 0 } },
   cssVariables: {
     colorSchemeSelector: "data-toolpad-color-scheme",
+  },
+  defaultColorScheme: "dark",
+  components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: getClickableStyle,
+      },
+    },
+    MuiCardActionArea: {
+      styleOverrides: {
+        root: getClickableStyle,
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          "&:hover": {
+            transform: getClickableStyle({ theme })["&:hover"].transform,
+          },
+        }),
+      },
+    },
+    MuiCard: {
+      defaultProps: {
+        sx: {
+          "&:hover": {
+            transform: "scale(1.05)",
+          },
+        },
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          ...getGradientBackground(theme),
+          transition: "transform 0.3s ease-in-out",
+        }),
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: ({ theme }) => getGradientBackground(theme),
+      },
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: ({ theme }) => getGradientBackground(theme),
+      },
+    },
   },
   colorSchemes: {
     light: {
       palette: {
         primary: {
           main: "#121212",
+        },
+        text: {
+          primary: "#000",
         },
       },
     },
@@ -18,12 +83,15 @@ const theme = createTheme({
         primary: {
           main: "#fff",
         },
+        text: {
+          primary: "#fff",
+        },
       },
     },
   },
   typography: {
     fontFamily: [
-    //   "Poppins",
+      //   "Poppins",
       "Montserrat",
       "-apple-system",
       "BlinkMacSystemFont",
