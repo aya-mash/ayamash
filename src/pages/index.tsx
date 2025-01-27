@@ -39,7 +39,7 @@ export default function HomePage() {
   const iconFontSize = { fontSize: { xs: 60, lg: 80 } };
 
   return (
-    <Grid container spacing={{ xs: 1, lg: 2 }} alignItems="center">
+    <Grid container spacing={{ xs: 1, lg: 2 }} alignItems="center" zIndex={1}>
       <Grid container size={12}>
         <Grid size={{ xs: 12, lg: 6 }}>
           <Card
