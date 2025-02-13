@@ -21,15 +21,15 @@ const router = createBrowserRouter([
             Component: DashboardPage,
           },
           {
-            path: "about",
+            path: "/about",
             Component: AboutPage,
           },
           {
-            path: "works",
+            path: "/works",
             Component: WorksPage,
           },
           {
-            path: "contact",
+            path: "/contact",
             Component: ContactPage,
           },
         ],

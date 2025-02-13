@@ -158,6 +158,7 @@ export default function HomePage() {
             description={"SHOWCASE"}
             media={<WorkHistory sx={iconFontSize} />}
             size={6}
+            pathTo="/works"
           />
         </Grid>
       </Grid>

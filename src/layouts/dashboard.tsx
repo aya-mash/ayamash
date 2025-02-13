@@ -96,12 +96,17 @@ export default function Layout() {
           toolbarActions: CustomToolbarActions,
         }}
       >
-        <PageContainer breadcrumbs={[]} title="" sx={{ pb: 5 }}>
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            options={options}
-          />
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
+        <PageContainer
+          breadcrumbs={[]}
+          title=""
+          allowFullScreen
+          sx={{ pb: 5, zIndex: 1, height: "100%", overflow: "auto", minWidth: "100%", mx: 0 }}
+        >
           <Outlet />
           <Footer>
             <TextContainer elevation={3}>
