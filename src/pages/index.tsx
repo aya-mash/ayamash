@@ -28,6 +28,7 @@ import DashboardCard from "../components/DashboardCard";
 import { ScrollingText, TextContainer } from "../components/Texts";
 import { socialLinks } from "../components/Icons";
 import ContactForm from "../components/ContactForm";
+import { scrollIntoView } from "../utils/scrollUtils";
 
 export default function HomePage() {
   const theme = useTheme();
@@ -70,7 +71,7 @@ export default function HomePage() {
                 borderRadius: 10,
               }}
             >
-              <CardActionArea onClick={() => console.log(true)}>
+              <CardActionArea onClick={() => scrollIntoView("about")}>
                 {ProfilePicture ? (
                   <CardMedia
                     component="img"
@@ -132,7 +133,7 @@ export default function HomePage() {
                       icon={<LocationOnRounded />}
                       sx={{ color: "text.secondary" }}
                     />
-                    <IconButton onClick={() => console.log(true)}>
+                    <IconButton onClick={() => scrollIntoView("about")}>
                       <AdsClickOutlined sx={{ fontSize: 40 }} />
                     </IconButton>
                   </Stack>
@@ -145,7 +146,10 @@ export default function HomePage() {
           {!isMobile && (
             <>
               <Grid size={12}>
-                <TextContainer elevation={1}>
+                <TextContainer
+                  elevation={1}
+                  onClick={() => scrollIntoView("projects")}
+                >
                   <ScrollingText
                     variant="body2"
                     textTransform="uppercase"
@@ -169,14 +173,14 @@ export default function HomePage() {
                 description={"MORE ABOUT ME"}
                 media={<Feed sx={iconFontSize} />}
                 size={6}
-                pathTo="#about"
+                pathTo="about"
               />
               <DashboardCard
                 title={"Projects"}
                 description={"SHOWCASE"}
                 media={<WorkHistory sx={iconFontSize} />}
                 size={6}
-                pathTo="#works"
+                pathTo="projects"
               />
             </>
           )}
@@ -185,6 +189,7 @@ export default function HomePage() {
           title={"Technologies"}
           description={"SPECIALIZATION"}
           size={12}
+          pathTo="skills"
           media={
             <Grid container spacing={1}>
               {skillsSummary.map((label) => (
@@ -198,6 +203,7 @@ export default function HomePage() {
             title={"Profiles"}
             description={"CONNECT WITH ME"}
             size={12}
+            pathTo="contact"
             media={
               <Stack direction="row" spacing={2}>
                 {socialLinks.map(({ link, icon }, index) => (

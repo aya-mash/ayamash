@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ReactNode } from "react";
-import { useNavigate } from "react-router";
+import { scrollIntoView } from "../utils/scrollUtils";
 
 type DashboardCardProps = {
   title: string;
@@ -27,13 +27,12 @@ const DashboardCard = ({
   pathTo,
   size = 3,
 }: DashboardCardProps) => {
-  const navigate = useNavigate();
   return (
     <Grow in={!!icon} {...(icon ? { timeout: 1000 } : {})}>
       <Card
         size={{ xs: 12, lg: size }}
         component={Grid}
-        onClick={() => pathTo && navigate(pathTo)}
+        onClick={() => pathTo && scrollIntoView(pathTo)}
         p={2}
         sx={{
           borderRadius: 10,
@@ -60,7 +59,7 @@ const DashboardCard = ({
               {title}
             </Typography>
           </Stack>
-          <IconButton onClick={() => pathTo && navigate(pathTo)}>
+          <IconButton onClick={() => pathTo && scrollIntoView(pathTo)}>
             <AdsClickOutlined sx={{ fontSize: 40 }} />
           </IconButton>
         </CardContent>

@@ -35,7 +35,7 @@ const Resume = () => {
           driving business impact.
         </Typography>
       </Stack>
-      <Grid container spacing={5} px={10} justifyContent="center">
+      <Grid id="skills" container spacing={5} px={10} justifyContent="center">
         <Grid size={{ xs: 12, md: 6 }}>
           <Typography variant="h5" gutterBottom align="center">
             Technical Skills
