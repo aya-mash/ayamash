@@ -7,6 +7,7 @@ import {
   Chip,
   Grid2 as Grid,
   Grow,
+  Skeleton,
   Stack,
   Typography,
 } from "@mui/material";
@@ -29,12 +30,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
         }}
         aria-label={`Project: ${project.title}`}
       >
-        {project.imageUrl && (
+        {project.imageUrl ? (
           <CardMedia
             component="img"
             image={project.imageUrl}
             alt={`${project.title} cover image`}
+            loading="lazy"
           />
+        ) : (
+          project.liveUrl && (
+            <Skeleton variant="rounded" width="100%" height={200} />
+          )
         )}
         <CardContent>
           <Stack spacing={1}>

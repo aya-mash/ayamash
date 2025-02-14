@@ -46,7 +46,7 @@ export default function Layout() {
         color: theme.palette.background.default,
       },
       interactivity: {
-        detectsOn: "canvas",
+        detectsOn: "window",
         events: {
           onClick: { enable: true, mode: "push" },
           onHover: { enable: true, mode: "repulse" },
@@ -65,7 +65,7 @@ export default function Layout() {
           color: theme.palette.primary.main,
           distance: 150,
           enable: true,
-          opacity: 1,
+          opacity: 0.5,
           width: 1,
         },
         move: {
@@ -74,11 +74,11 @@ export default function Layout() {
           enable: true,
           outMode: "out",
           random: false,
-          speed: 2,
+          speed: 1,
           straight: false,
         },
         number: { density: { enable: true, area: 1000 }, value: 100 },
-        opacity: { value: 1 },
+        opacity: { value: 0.5 },
         shape: { type: "none" },
         size: { random: true, value: 10 },
       },
