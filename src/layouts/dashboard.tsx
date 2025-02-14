@@ -90,8 +90,7 @@ export default function Layout() {
   if (init) {
     return (
       <DashboardLayout
-        defaultSidebarCollapsed
-        hideNavigation={isMobile}
+        hideNavigation
         slots={{
           toolbarActions: CustomToolbarActions,
         }}
@@ -105,7 +104,14 @@ export default function Layout() {
           breadcrumbs={[]}
           title=""
           allowFullScreen
-          sx={{ pb: 5, zIndex: 1, height: "100%", overflow: "auto", minWidth: "100%", mx: 0 }}
+          sx={{
+            pb: 5,
+            zIndex: 1,
+            height: "100%",
+            overflow: "auto",
+            minWidth: "100%",
+            mx: 0,
+          }}
         >
           <Outlet />
           <Footer>

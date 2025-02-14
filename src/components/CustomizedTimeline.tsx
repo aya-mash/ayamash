@@ -28,7 +28,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
     <Grid
       container
       size={{ xs: 12, lg: 6 }}
-      p={{ xs: 2, lg: 3 }}
+      p={{ xs: 2, lg: 1 }}
       component={Paper}
       elevation={3}
       borderRadius={10}

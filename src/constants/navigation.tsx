@@ -1,5 +1,4 @@
 import {
-  Person,
   WorkHistory,
   ContactPage,
   Dashboard,
@@ -10,11 +9,6 @@ const NAVIGATION: NavigationPageItem[] = [
   {
     title: "Home",
     icon: <Dashboard />,
-  },
-  {
-    segment: "about",
-    title: "About",
-    icon: <Person />,
   },
   {
     segment: "works",

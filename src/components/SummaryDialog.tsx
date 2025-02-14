@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   AppBar,
   Button,
@@ -11,12 +12,13 @@ import {
   IconButton,
   Paper,
   Skeleton,
+  Slide,
   Stack,
   Typography,
 } from "@mui/material";
 import ProfilePicture from "../assets/profile_picture_grey.jpg";
 import { CapitalizedText } from "./Texts";
-import { Close } from "@mui/icons-material";
+import { CardMembership, Close, VolunteerActivism } from "@mui/icons-material";
 import Logo from "./Branding/Logo";
 import { useNavigate } from "react-router";
 import CustomToolbarActions from "./CustomToolbarActions";
@@ -25,6 +27,18 @@ import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import WorkRoundedIcon from "@mui/icons-material/WorkRounded";
 import { EDUCATION } from "../constants/education";
 import { EXPERIENCE } from "../constants/experience";
+import { RESUME } from "../constants/resume";
+import { TransitionProps } from "@mui/material/transitions";
+import { forwardRef, ReactElement, Ref } from "react";
+
+const Transition = forwardRef(function Transition(
+  props: TransitionProps & {
+    children: ReactElement<any, any>;
+  },
+  ref: Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 type Props = {
   open: boolean;
@@ -34,7 +48,21 @@ type Props = {
 const SummaryDialog = ({ open, onClose }: Props) => {
   const navigate = useNavigate();
   return (
-    <Dialog open={open} onClose={onClose} fullScreen>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      fullScreen
+      transitionDuration={300}
+      slotProps={{
+        transition: {
+          in: open,
+          appear: open,
+        },
+      }}
+      slots={{
+        transition: Transition,
+      }}
+    >
       <DialogTitle
         position="relative"
         component={AppBar}
@@ -175,6 +203,52 @@ const SummaryDialog = ({ open, onClose }: Props) => {
               })
             )}
           />
+          <Grid container spacing={2} sx={{ marginTop: "32px" }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Typography variant="h5" gutterBottom>
+                Technical Skills
+              </Typography>
+              {RESUME.technicalSkills.map((skill, index) => (
+                <Chip
+                  key={skill + index}
+                  label={skill}
+                  sx={{ margin: "4px" }}
+                />
+              ))}
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Typography variant="h5" gutterBottom>
+                Key Strengths
+              </Typography>
+              {RESUME.keyStrengths.map((strength, index) => (
+                <Chip
+                  key={strength + index}
+                  label={strength}
+                  sx={{ margin: "4px" }}
+                />
+              ))}
+            </Grid>
+          </Grid>
+
+          <CustomizedTimeline
+            icon={<CardMembership />}
+            data={RESUME.certifications.map(({ name, issued, expiration }) => ({
+              title: name,
+              establishment: `Issued: ${issued} | Expiration: ${expiration}`,
+              duration: "",
+            }))}
+            headerTitle="Certifications"
+          />
+
+          <CustomizedTimeline
+            icon={<VolunteerActivism />}
+            data={RESUME.volunteering.map(({ title, organization, dates }) => ({
+              title,
+              establishment: organization,
+              duration: dates,
+            }))}
+            headerTitle="Volunteering"
+          />
         </Grid>
       </DialogContent>
       <DialogActions sx={{ p: 3 }}>
@@ -182,7 +256,7 @@ const SummaryDialog = ({ open, onClose }: Props) => {
           Close
         </Button>
         <Button variant="contained" onClick={() => navigate("/about")}>
-          Learn More
+          Download
         </Button>
       </DialogActions>
     </Dialog>

@@ -7,6 +7,7 @@ import {
   Chip,
   Grid2 as Grid,
   Grow,
+  Paper,
   Skeleton,
   Stack,
   Typography,
@@ -106,7 +107,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 const WorksPage = () => {
   return (
-    <>
+    <Paper id="#works" sx={{ background: "none" }}>
       <Grid container spacing={2} pb={3}>
         <Grid size={{ xs: 12, md: 6 }}>
           <CapitalizedText
@@ -158,7 +159,7 @@ const WorksPage = () => {
           </Grid>
         ))}
       </Grid>
-    </>
+    </Paper>
   );
 };
 
