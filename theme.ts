@@ -11,7 +11,7 @@ const getClickableStyle = ({ theme }: { theme: Theme }) => ({
 const getGradientBackground = ({ palette }: Theme) => ({
   backgroundImage:
     palette.mode === "light"
-      ? "linear-gradient(to right, #f8f8f8, #f0f0f0, #e8e8e8)"
+      ? "#fff"
       : "linear-gradient(to right, #121212, #141414, #1f1f1f)",
 });
 
@@ -35,6 +35,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: ({ theme }) => ({
+          borderRadius: 50,
           "&:hover": {
             transform: getClickableStyle({ theme })["&:hover"].transform,
           },
@@ -44,6 +45,7 @@ const theme = createTheme({
     MuiCard: {
       defaultProps: {
         sx: {
+          borderRadius: 10,
           "&:hover": {
             transform: "scale(1.05)",
           },
@@ -91,7 +93,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: [
-      //   "Poppins",
+        "Poppins",
       "Montserrat",
       "-apple-system",
       "BlinkMacSystemFont",

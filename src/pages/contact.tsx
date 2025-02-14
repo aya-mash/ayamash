@@ -1,7 +1,7 @@
-import Typography from "@mui/material/Typography";
+import Contact from "../components/ContactForm";
 
 const ContactPage = () => {
-  return <Typography>Contact!</Typography>;
+  return <Contact />;
 };
 
 export default ContactPage;

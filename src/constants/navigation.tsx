@@ -1,4 +1,5 @@
 import {
+  Person,
   WorkHistory,
   ContactPage,
   Dashboard,
@@ -8,11 +9,17 @@ import { NavigationPageItem } from "@toolpad/core/AppProvider";
 const NAVIGATION: NavigationPageItem[] = [
   {
     title: "Home",
+    segment: "home",
     icon: <Dashboard />,
   },
   {
-    segment: "works",
-    title: "Works",
+    segment: "about",
+    title: "About",
+    icon: <Person />,
+  },
+  {
+    segment: "projects",
+    title: "Projects",
     icon: <WorkHistory />,
   },
   {

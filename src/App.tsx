@@ -11,10 +11,10 @@ import navigation from "./constants/navigation";
 export default function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-    const BRANDING: Branding = {
-      title: isMobile ? "" : "AYABULELA MAHLATHINI",
-      logo: <Logo />,
-    };
+  const BRANDING: Branding = {
+    title: isMobile ? "" : "AYABULELA MAHLATHINI",
+    logo: <Logo />,
+  };
 
   return (
     <ReactRouterAppProvider

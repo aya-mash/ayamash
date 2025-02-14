@@ -1,18 +1,19 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import { createHashRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
-import Layout from "./layouts/dashboard";
+import Layout from "./layouts/portfolio";
 import DashboardPage from "./pages";
+import AboutPage from "./pages/about";
 import WorksPage from "./pages/works";
 import ContactPage from "./pages/contact";
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     Component: App,
     children: [
       {
-        path: "/",
+        path: "",
         Component: Layout,
         children: [
           {
@@ -20,11 +21,15 @@ const router = createHashRouter([
             Component: DashboardPage,
           },
           {
-            path: "/works",
+            path: "#about",
+            Component: AboutPage,
+          },
+          {
+            path: "#projects",
             Component: WorksPage,
           },
           {
-            path: "/contact",
+            path: "#contact",
             Component: ContactPage,
           },
         ],

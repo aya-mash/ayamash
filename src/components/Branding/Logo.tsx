@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material";
 import darkLogo from "../../assets/logo.png";
 import lightLogo from "../../assets/logo_v2.png";
+import { scrollIntoView } from "../../utils/scrollUtils";
 
 type LogoProps = {
   maxWidth?: string;
@@ -10,11 +11,21 @@ type LogoProps = {
 const Logo = ({ maxHeight = "50px", maxWidth = "50px" }: LogoProps) => {
   const theme = useTheme();
   return (
-    <img
-      src={theme.palette.mode === "dark" ? darkLogo : lightLogo}
-      alt="Logo"
-      style={{ maxWidth, maxHeight }}
-    />
+    <button
+      onClick={() => scrollIntoView("home")}
+      style={{
+        border: "none",
+        background: "none",
+        padding: 0,
+        cursor: "pointer",
+      }}
+    >
+      <img
+        src={theme.palette.mode === "dark" ? darkLogo : lightLogo}
+        alt="Logo"
+        style={{ maxWidth, maxHeight }}
+      />
+    </button>
   );
 };
 

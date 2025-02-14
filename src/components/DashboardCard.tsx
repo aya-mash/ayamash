@@ -34,21 +34,13 @@ const DashboardCard = ({
         size={{ xs: 12, lg: size }}
         component={Grid}
         onClick={() => pathTo && navigate(pathTo)}
+        p={2}
         sx={{
           borderRadius: 10,
           alignContent: "center",
         }}
-        elevation={3}
+        elevation={1}
       >
-        <CardMedia
-          sx={{
-            display: "flex",
-            justifyContent: "flex-start",
-            p: { xs: 2, lg: 1 },
-          }}
-        >
-          {icon}
-        </CardMedia>
         <CardContent
           sx={{
             display: "flex",
@@ -72,6 +64,15 @@ const DashboardCard = ({
             <AdsClickOutlined sx={{ fontSize: 40 }} />
           </IconButton>
         </CardContent>
+        <CardMedia
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            p: { xs: 2, lg: 1 },
+          }}
+        >
+          {icon}
+        </CardMedia>
       </Card>
     </Grow>
   );

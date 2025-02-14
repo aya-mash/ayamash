@@ -7,7 +7,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Typography from "@mui/material/Typography";
 import { ReactNode } from "react";
-import { Chip, Grid2 as Grid, Paper } from "@mui/material";
+import { Chip, Grid2 as Grid } from "@mui/material";
 import { CapitalizedText } from "./Texts";
 
 type TimelineProps = {
@@ -29,8 +29,6 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
       container
       size={{ xs: 12, lg: 6 }}
       p={{ xs: 2, lg: 1 }}
-      component={Paper}
-      elevation={3}
       borderRadius={10}
       justifyContent="center"
       alignItems="flex-start"
@@ -43,7 +41,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
         color="primary"
         sx={({ typography }) => ({
           fontSize: {
-            xs: typography.overline.fontSize,
+            xs: typography.body1.fontSize,
             lg: typography.h4.fontSize,
           },
         })}
@@ -75,7 +73,6 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
             >
               <Typography
                 variant="button"
-                fontWeight={{ lg: 600 }}
                 component="span"
               >
                 {title}
@@ -83,7 +80,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
               <Typography variant="body2" color="text.secondary">
                 {establishment}
               </Typography>
-              <Chip label={type} size="small" sx={{ mt: 1 }} />
+              {type && <Chip label={type} size="small" sx={{ mt: 1 }} />}
             </TimelineContent>
           </TimelineItem>
         ))}
