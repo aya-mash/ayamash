@@ -1,11 +1,4 @@
-import {
-  GitHub,
-  LinkedIn,
-  Instagram,
-  Facebook,
-  YouTube,
-  WhatsApp,
-} from "@mui/icons-material";
+import { GitHub, LinkedIn, YouTube } from "@mui/icons-material";
 
 const iconStyle = { fontSize: { xs: 20, lg: 20 } };
 
