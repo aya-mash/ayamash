@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             component="img"
             image={project.imageUrl}
             alt={`${project.title} cover image`}
-            loading="lazy"
+            loading="eager"
           />
         ) : (
           project.liveUrl && (

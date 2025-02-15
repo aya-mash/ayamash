@@ -80,7 +80,7 @@ export default function HomePage() {
                     src={ProfilePicture}
                     alt="profile picture"
                     sx={{ borderRadius: 10 }}
-                    loading="lazy"
+                    loading="eager"
                   />
                 ) : (
                   <Skeleton variant="rounded" width={150} height={300} />
