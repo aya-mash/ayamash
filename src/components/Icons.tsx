@@ -20,24 +20,24 @@ export const socialLinks = [
     icon: <LinkedIn sx={iconStyle} />,
     link: "https://www.linkedin.com/in/ayabulela-mahlathini/",
   },
-  {
-    name: "Instagram",
-    icon: <Instagram sx={iconStyle} />,
-    link: "https://www.instagram.com/aya.mash/",
-  },
-  {
-    name: "Facebook",
-    icon: <Facebook sx={iconStyle} />,
-    link: "https://www.facebook.com/ayabulela.mahlathini/",
-  },
+  // {
+  //   name: "Instagram",
+  //   icon: <Instagram sx={iconStyle} />,
+  //   link: "https://www.instagram.com/aya.mash/",
+  // },
+  // {
+  //   name: "Facebook",
+  //   icon: <Facebook sx={iconStyle} />,
+  //   link: "https://www.facebook.com/ayabulela.mahlathini/",
+  // },
   {
     name: "YouTube",
     icon: <YouTube sx={iconStyle} />,
     link: "https://www.youtube.com/@aya_mash",
   },
-  {
-    name: "WhatsApp",
-    icon: <WhatsApp sx={iconStyle} />,
-    link: "https://wa.me/+27849086628",
-  },
+  // {
+  //   name: "WhatsApp",
+  //   icon: <WhatsApp sx={iconStyle} />,
+  //   link: "https://wa.me/+27849086628",
+  // },
 ];
