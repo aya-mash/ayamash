@@ -110,8 +110,8 @@ export default function HomePage() {
                       variant="body2"
                       sx={{ color: "text.secondary" }}
                     >
-                      A Software Engineer who loves turning
-                      ideas into seamless digital experiences.
+                      A Software Engineer who loves turning ideas into seamless
+                      digital experiences.
                     </Typography>
                   </Stack>
                 </CardContent>

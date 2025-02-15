@@ -88,87 +88,87 @@ export default function Layout() {
 
   if (init) {
     return (
-      <DashboardLayout
-        hideNavigation
-        slots={{
-          toolbarActions: CustomToolbarActions,
-        }}
-      >
-        {theme.palette.mode === "dark" && (
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            options={options}
-          />
-        )}
-        <PageContainer
-          breadcrumbs={[]}
-          title=""
-          allowFullScreen
-          sx={{
-            pb: 5,
-            zIndex: 1,
-            height: "100%",
-            overflow: "auto",
-            minWidth: "100%",
-            mx: 0,
+        <DashboardLayout
+          hideNavigation
+          slots={{
+            toolbarActions: CustomToolbarActions,
           }}
         >
-          <Outlet />
-          <Footer>
-            <TextContainer elevation={1}>
-              <CapitalizedText
-                fontSize={{ xs: "0.65em", lg: "0.8em" }}
-                textAlign="center"
-                width="100%"
-              >
-                © {new Date().getFullYear()} Aya Mash. All rights reserved.
-              </CapitalizedText>
-            </TextContainer>
-          </Footer>
-        </PageContainer>
-        {isMobile && (
-          <Paper
+          {theme.palette.mode === "dark" && (
+            <Particles
+              id="tsparticles"
+              particlesLoaded={particlesLoaded}
+              options={options}
+            />
+          )}
+          <PageContainer
+            breadcrumbs={[]}
+            title=""
+            allowFullScreen
             sx={{
-              position: "fixed",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              background: "transparent",
-              borderRadius: "20px 20px 0 0",
+              pb: 5,
               zIndex: 1,
+              height: "100%",
+              overflow: "auto",
+              minWidth: "100%",
+              mx: 0,
             }}
-            elevation={3}
           >
-            <BottomNavigation
-              value={currentSegment}
-              onChange={(_, path) => scrollIntoView(path)}
-              sx={{ borderRadius: 20 }}
+            <Outlet />
+            <Footer>
+              <TextContainer elevation={1}>
+                <CapitalizedText
+                  fontSize={{ xs: "0.65em", lg: "0.8em" }}
+                  textAlign="center"
+                  width="100%"
+                >
+                  © {new Date().getFullYear()} Aya Mash. All rights reserved.
+                </CapitalizedText>
+              </TextContainer>
+            </Footer>
+          </PageContainer>
+          {isMobile && (
+            <Paper
+              sx={{
+                position: "fixed",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: "transparent",
+                borderRadius: "20px 20px 0 0",
+                zIndex: 1,
+              }}
+              elevation={3}
             >
-              {navigation.map(
-                (
-                  { title = "Untitled", segment = "", icon },
-                  index,
-                  { length }
-                ) => (
-                  <BottomNavigationAction
-                    key={segment}
-                    label={title}
-                    icon={icon}
-                    value={segment}
-                    sx={{
-                      "&.MuiBottomNavigationAction-root.Mui-selected": {
-                        bgcolor: theme.palette.action.selected,
-                        borderRadius: `${index === 0 ? 20 : 0}px ${index === length - 1 ? 20 : 0}px 0 0`,
-                      },
-                    }}
-                  />
-                )
-              )}
-            </BottomNavigation>
-          </Paper>
-        )}
-      </DashboardLayout>
+              <BottomNavigation
+                value={currentSegment}
+                onChange={(_, path) => scrollIntoView(path)}
+                sx={{ borderRadius: 20 }}
+              >
+                {navigation.map(
+                  (
+                    { title = "Untitled", segment = "", icon },
+                    index,
+                    { length }
+                  ) => (
+                    <BottomNavigationAction
+                      key={segment}
+                      label={title}
+                      icon={icon}
+                      value={segment}
+                      sx={{
+                        "&.MuiBottomNavigationAction-root.Mui-selected": {
+                          bgcolor: theme.palette.action.selected,
+                          borderRadius: `${index === 0 ? 20 : 0}px ${index === length - 1 ? 20 : 0}px 0 0`,
+                        },
+                      }}
+                    />
+                  )
+                )}
+              </BottomNavigation>
+            </Paper>
+          )}
+        </DashboardLayout>
     );
   }
 }

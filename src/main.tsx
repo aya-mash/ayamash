@@ -2,11 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
-import Layout from "./layouts/portfolio";
-import DashboardPage from "./pages";
-import AboutPage from "./pages/about";
-import WorksPage from "./pages/works";
-import ContactPage from "./pages/contact";
+import Content from "./pages";
+import PortfolioLayout from "./Portfolio";
 
 const router = createBrowserRouter([
   {
@@ -14,24 +11,24 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        Component: Layout,
+        Component: PortfolioLayout,
         children: [
           {
             path: "",
-            Component: DashboardPage,
+            Component: Content,
           },
-          {
-            path: "#about",
-            Component: AboutPage,
-          },
-          {
-            path: "#projects",
-            Component: WorksPage,
-          },
-          {
-            path: "#contact",
-            Component: ContactPage,
-          },
+          // {
+          //   path: "/about",
+          //   Component: AboutPage,
+          // },
+          // {
+          //   path: "/projects",
+          //   Component: WorksPage,
+          // },
+          // {
+          //   path: "/contact",
+          //   Component: ContactPage,
+          // },
         ],
       },
     ],
