@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
-import darkLogo from "../../assets/logo.png";
-import lightLogo from "../../assets/logo_v2.png";
+import darkLogo from "../../assets/logo.webp";
+import lightLogo from "../../assets/logo_v2.webp";
 import { scrollIntoView } from "../../utils/scrollUtils";
 
 type LogoProps = {

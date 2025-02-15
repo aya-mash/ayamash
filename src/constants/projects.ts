@@ -1,6 +1,6 @@
-import Foonda from "../assets/foonda.png";
-import Certman from "../assets/certman.png";
-import BlackAndWhite from "../assets/blacknwhite.png";
+import Foonda from "../assets/foonda.webp";
+import Certman from "../assets/certman.webp";
+import BlackAndWhite from "../assets/blacknwhite.webp";
 
 export type Project = {
   id: string;
