@@ -20,7 +20,7 @@ const theme = createTheme({
   cssVariables: {
     colorSchemeSelector: "data-toolpad-color-scheme",
   },
-  defaultColorScheme: "dark",
+  defaultColorScheme: "light",
   components: {
     MuiIconButton: {
       styleOverrides: {
@@ -93,7 +93,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: [
-        "Poppins",
+      "Poppins",
       "Montserrat",
       "-apple-system",
       "BlinkMacSystemFont",

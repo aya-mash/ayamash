@@ -25,17 +25,30 @@ const Resume = () => {
         >
           Summary
         </CapitalizedText>
-        <Typography align="center" sx={{ color: "text.secondary" }}>
-          Full Stack Engineer with 5+ years of experience crafting exceptional
-          user-centric web applications, I excel in transforming complex user
-          experiences into reality with a strong focus on delivering solutions
-          that meet challenging nonfunctional requirements. Proven ability to
-          lead teams, mentor other developers, and deliver exceptional user
-          experiences. Passionate about crafting innovative solutions and
-          driving business impact.
+        <Typography
+          align="center"
+          px={{ md: 12 }}
+          sx={{ color: "text.secondary" }}
+        >
+          I’m a Full Stack Engineer with 5+ years of experience solving
+          problems, writing clean code, and working on products that make an
+          impact. With a deep love for frontend development and UI/UX, I
+          specialize in crafting sleek, high-performance applications using
+          React, TypeScript, and Next.js, while also keeping things solid on the
+          backend. I’m a fast learner and highly adaptive to new languages and
+          technologies, allowing me to pick up new tools quickly and build
+          efficient, scalable solutions. For me, great software is more than
+          just code—it’s about crafting an experience that’s as enjoyable to use
+          as it is to build.
         </Typography>
       </Stack>
-      <Grid id="skills" container spacing={5} px={10} justifyContent="center">
+      <Grid
+        id="skills"
+        container
+        spacing={5}
+        px={{ md: 10 }}
+        justifyContent="center"
+      >
         <Grid size={{ xs: 12, md: 6 }}>
           <Typography variant="h5" gutterBottom align="center">
             Technical Skills

@@ -10,7 +10,7 @@ export const RESUME = {
     website: "ayamash.tech",
   },
   summary:
-    "Results-driven Full-Stack Engineer with a proven track record of architecting and developing high-impact web applications. Expertise in React, TypeScript, and GraphQL, with a passion for delivering exceptional user experiences and exceeding business objectives. Adept at leading teams, mentoring developers, and driving innovation.",
+    "I’m a Full Stack Engineer with 5+ years of experience solving problems, writing clean code, and working on products that make an impact. With a deep love for frontend development and UI/UX, I specialize in crafting sleek, high-performance applications using React, TypeScript, and Next.js, while also keeping things solid on the backend. I’m a fast learner and highly adaptive to new languages and technologies, allowing me to pick up new tools quickly and build efficient, scalable solutions. For me, great software is more than just code—it’s about crafting an experience that’s as enjoyable to use as it is to build.",
   experience: [
     {
       title: "Software Engineer, Full-Stack",

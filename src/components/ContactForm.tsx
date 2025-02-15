@@ -80,6 +80,7 @@ const ContactForm = () => {
       sx={{
         position: "relative",
         p: { xs: 2, md: 10 },
+        mx: { xs: 2, md: 10 },
         width: "100%",
         borderRadius: 10,
         justifyContent: "center",

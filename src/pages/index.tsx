@@ -96,23 +96,22 @@ export default function HomePage() {
                     <Typography
                       variant="subtitle1"
                       component="div"
-                      textTransform="uppercase"
                       sx={{ color: "text.secondary" }}
                     >
-                      SOFTWARE ENGINEER.
+                      Hi there.
                     </Typography>
                     <Typography
                       variant={isMobile ? "h4" : "h2"}
                       fontWeight={800}
                     >
-                      I'M AYA.
+                      I'M AYA!
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{ color: "text.secondary" }}
                     >
-                      Creating seamless web experiences as a Software Engineer
-                      and design enthusiast.
+                      A Software Engineer who loves turning
+                      ideas into seamless digital experiences.
                     </Typography>
                   </Stack>
                 </CardContent>
