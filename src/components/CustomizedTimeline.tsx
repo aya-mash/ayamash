@@ -7,7 +7,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Typography from "@mui/material/Typography";
 import { ReactNode } from "react";
-import { Chip, Grid2 as Grid } from "@mui/material";
+import { Card, Chip, Grid2 } from "@mui/material";
 import { CapitalizedText } from "./Texts";
 
 type TimelineProps = {
@@ -25,13 +25,11 @@ type Props = {
 
 const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
   return (
-    <Grid
+    <Card
       container
-      size={{ xs: 12, lg: 6 }}
-      p={{ xs: 2, lg: 1 }}
-      borderRadius={10}
+      component={Grid2}
       justifyContent="center"
-      alignItems="flex-start"
+      sx={{ background: "none" }}
     >
       <CapitalizedText
         fontWeight={{
@@ -71,10 +69,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
                 justifyContent: "flex-start",
               }}
             >
-              <Typography
-                variant="button"
-                component="span"
-              >
+              <Typography variant="button" component="span">
                 {title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -85,7 +80,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
           </TimelineItem>
         ))}
       </Timeline>
-    </Grid>
+    </Card>
   );
 };
 

@@ -6,7 +6,6 @@ import {
   CardMedia,
   Chip,
   Grid2 as Grid,
-  Grow,
   Paper,
   Skeleton,
   Stack,
@@ -16,10 +15,11 @@ import { liveProjects, otherProjects, Project } from "../constants/projects";
 import { CapitalizedText } from "../components/Texts";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import ScrollAnimation from "./ScrollAnimation";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Grow in>
+    <ScrollAnimation transitionType="grow" size={12}>
       <Card
         component={Stack}
         elevation={3}
@@ -102,7 +102,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           )}
         </CardActions>
       </Card>
-    </Grow>
+    </ScrollAnimation>
   );
 };
 

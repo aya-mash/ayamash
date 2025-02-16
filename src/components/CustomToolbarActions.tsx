@@ -4,7 +4,7 @@ import ResumePDF from "../assets/resume.pdf";
 import { Download } from "@mui/icons-material";
 import { scrollIntoView } from "../utils/scrollUtils";
 
-
+const sections = ["Home", "About", "Projects", "Contact"];
 
 const CustomToolbarActions = () => {
   const theme = useTheme();
@@ -14,34 +14,16 @@ const CustomToolbarActions = () => {
     <>
       {isDesktop ? (
         <>
-          <Button
-            variant="outlined"
-            sx={{ borderRadius: 10 }}
-            onClick={() => scrollIntoView("home")}
-          >
-            Home
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{ borderRadius: 10 }}
-            onClick={() => scrollIntoView("about")}
-          >
-            About
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{ borderRadius: 10 }}
-            onClick={() => scrollIntoView("projects")}
-          >
-            Projects
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{ borderRadius: 10 }}
-            onClick={() => scrollIntoView("contact")}
-          >
-            Contact
-          </Button>
+          {sections.map((section) => (
+            <Button
+              key={section}
+              variant="outlined"
+              sx={{ borderRadius: 10 }}
+              onClick={() => scrollIntoView(section.toLowerCase())}
+            >
+              {section}
+            </Button>
+          ))}
           <Button
             variant="contained"
             size="large"

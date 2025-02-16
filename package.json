@@ -21,6 +21,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.0",
     "formik": "^2.4.6",
+    "framer-motion": "^12.4.3",
     "react": "^19",
     "react-dom": "^19",
     "react-router": "^7",
