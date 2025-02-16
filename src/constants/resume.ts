@@ -5,9 +5,7 @@ export const RESUME = {
     phone: "+27 84 908 6628",
     email: "ayabulelamahlathini@gmail.com",
     location: "Cape Town, South Africa",
-    linkedin: "your_linkedin_profile",
-    github: "your_github_profile",
-    website: "ayamash.tech",
+    website: "https://ayamash.tech",
   },
   summary:
     "I’m a Full Stack Engineer with 5+ years of experience solving problems, writing clean code, and working on products that make an impact. With a deep love for frontend development and UI/UX, I specialize in crafting sleek, high-performance applications using React, TypeScript, and Next.js, while also keeping things solid on the backend. I’m a fast learner and highly adaptive to new languages and technologies, allowing me to pick up new tools quickly and build efficient, scalable solutions. For me, great software is more than just code—it’s about crafting an experience that’s as enjoyable to use as it is to build.",
@@ -18,7 +16,7 @@ export const RESUME = {
       location: "East London, ZA",
       dates: "Dec. 2021 - Present",
       description: [
-        "Engineered customer-facing web applications using React.js and TypeScript, resulting in a 40% increase in user engagement and a 25% improvement in sprint completion rates.",
+        "Engineered customer-facing web applications using React.js and TypeScript, resulting in a 60% increase in user engagement and a 25% improvement in sprint completion rates.",
         "Led UI/UX design and front-end development, ensuring design fidelity and optimal performance, while increasing user satisfaction and feedback contribution by 40%.",
         "Spearheaded the integration of GraphQL, enhancing data retrieval efficiency and boosting application performance by 30%.",
         "Mentored interns and new hires, fostering a culture of knowledge sharing and team growth.",
@@ -33,7 +31,7 @@ export const RESUME = {
       location: "Cape Town, ZA",
       dates: "Aug. 2021 - Nov. 2021",
       description: [
-        "Developed full-stack web applications using React.js, GraphQL, and AWS services (Amplify, Lambda, Elastic Beanstalk).",
+        "Developed full-stack web applications using React.js, Three.JS, GraphQL, and AWS services (Amplify, Lambda, Elastic Beanstalk).",
         "Researched and integrated new technologies, improving development efficiency by 20%.",
         "Supported deployment processes, expanding cloud computing knowledge and experience.",
       ],
@@ -52,6 +50,7 @@ export const RESUME = {
   ],
   technicalSkills: [
     "React.js",
+    "React Native",
     "Next.js",
     "TypeScript",
     "JavaScript",

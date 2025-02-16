@@ -32,7 +32,6 @@ const DashboardCard = ({
       <Card
         size={{ xs: 12, lg: size }}
         component={Grid}
-        onClick={() => pathTo && scrollIntoView(pathTo)}
         p={2}
         sx={{
           borderRadius: 10,
