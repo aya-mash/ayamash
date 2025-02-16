@@ -19,7 +19,7 @@ import ScrollAnimation from "./ScrollAnimation";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <ScrollAnimation transitionType="grow" size={12}>
+    <ScrollAnimation transitionType="grow" size={12} height="100%">
       <Card
         component={Stack}
         elevation={3}

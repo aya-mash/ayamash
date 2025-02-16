@@ -27,6 +27,7 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
   return (
     <Card
       container
+      elevation={0}
       component={Grid2}
       justifyContent="center"
       sx={{ background: "none" }}
