@@ -7,7 +7,7 @@ export const EDUCATION = [
       start: "Feb 2025",
       end: "Dec 2025",
     },
-    type: "Online",
+    type: "Planned",
     relevant_modules: [
       "Software Engineering",
       "Cloud Development",
