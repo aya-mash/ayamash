@@ -1,25 +1,7 @@
-import {
-  CircularProgress,
-  Box,
-  Typography,
-  keyframes,
-  useTheme,
-} from "@mui/material";
+import { CircularProgress, Box, Typography, useTheme } from "@mui/material";
 import logoDark from "../assets/logo.webp";
 import logo from "../assets/logo_v2.webp";
 import { motion } from "framer-motion";
-
-const pulse = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
 
 export const Fallback = () => {
   const {
