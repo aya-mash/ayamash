@@ -37,6 +37,8 @@ const CustomizedTimeline = ({ icon, data, headerTitle }: Props) => {
           xs: 400,
           lg: 800,
         }}
+        align="center"
+        width='100%'
         color="primary"
         sx={({ typography }) => ({
           fontSize: {

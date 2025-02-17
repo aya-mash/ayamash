@@ -1,4 +1,4 @@
-import { Chip, Grid2 as Grid, Stack, Typography } from "@mui/material";
+import { Chip, Grid2 as Grid, Stack, Tab, Typography } from "@mui/material";
 import { CardMembership, VolunteerActivism } from "@mui/icons-material";
 import CustomizedTimeline from "./CustomizedTimeline";
 import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
@@ -8,12 +8,14 @@ import { EXPERIENCE } from "../constants/experience";
 import { RESUME } from "../constants/resume";
 import { CapitalizedText } from "./Texts";
 import ScrollAnimation from "./ScrollAnimation";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { useState } from "react";
 
 const Resume = () => {
+  const [tabValue, setTabValue] = useState("skills");
   return (
     <Grid id="about" container spacing={10} my={10}>
       <ScrollAnimation transitionType="grow" size={12}>
-        {" "}
         <Stack width="100%" spacing={1}>
           <CapitalizedText
             fontWeight={800}
@@ -46,101 +48,120 @@ const Resume = () => {
           </Typography>
         </Stack>
       </ScrollAnimation>
-      <Grid
-        id="skills"
-        container
-        spacing={5}
-        px={{ md: 10 }}
-        justifyContent="center"
-      >
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Typography variant="h5" gutterBottom align="center">
-            Technical Skills
-          </Typography>
-          <ScrollAnimation transitionType="grow" size={12}>
-            <Grid container justifyContent="center">
-              {RESUME.technicalSkills.map((skill, index) => (
-                <Chip
-                  key={skill + index}
-                  label={skill}
-                  sx={{ margin: "4px" }}
-                />
-              ))}
+      <Grid component={Grid} justifyContent="center" container width="100%">
+        <TabContext value={tabValue}>
+          <TabList
+            id="skills"
+            onChange={(_, value) => setTabValue(value)}
+            aria-label="tabs for resume"
+          >
+            <Tab label="Skills" aria-label="skils" value="skills" />
+            <Tab
+              label="Experience"
+              aria-label="experience"
+              value="experience"
+            />
+            <Tab label="More" aria-label="more" value="more" />
+          </TabList>
+          <TabPanel value="skills">
+            <Grid container spacing={5} px={{ md: 10 }} justifyContent="center">
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography variant="h5" gutterBottom align="center">
+                  Technical Skills
+                </Typography>
+                <ScrollAnimation transitionType="grow" size={12}>
+                  <Grid container justifyContent="center">
+                    {RESUME.technicalSkills.map((skill, index) => (
+                      <Chip
+                        key={skill + index}
+                        label={skill}
+                        sx={{ margin: "4px" }}
+                      />
+                    ))}
+                  </Grid>
+                </ScrollAnimation>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography variant="h5" gutterBottom align="center">
+                  Key Strengths
+                </Typography>
+                <ScrollAnimation transitionType="grow" size={12}>
+                  <Grid container justifyContent="center">
+                    {RESUME.keyStrengths.map((strength, index) => (
+                      <Chip
+                        key={strength + index}
+                        label={strength}
+                        sx={{ margin: "4px" }}
+                      />
+                    ))}
+                  </Grid>
+                </ScrollAnimation>
+              </Grid>
             </Grid>
-          </ScrollAnimation>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Typography variant="h5" gutterBottom align="center">
-            Key Strengths
-          </Typography>
-          <ScrollAnimation transitionType="grow" size={12}>
-            <Grid container justifyContent="center">
-              {RESUME.keyStrengths.map((strength, index) => (
-                <Chip
-                  key={strength + index}
-                  label={strength}
-                  sx={{ margin: "4px" }}
+          </TabPanel>
+          <TabPanel value="experience">
+            <Grid container>
+              <ScrollAnimation transitionType="slide" slideDirection="left">
+                <CustomizedTimeline
+                  headerTitle="Work"
+                  icon={<WorkRoundedIcon />}
+                  data={EXPERIENCE.map(
+                    ({ company, title, dates, employment_type }) => ({
+                      title: title,
+                      establishment: company,
+                      duration: `${dates.start} - ${dates.end}`,
+                      type: employment_type,
+                    })
+                  )}
                 />
-              ))}
+              </ScrollAnimation>
+              <ScrollAnimation transitionType="slide" slideDirection="right">
+                <CustomizedTimeline
+                  headerTitle="Education"
+                  icon={<SchoolRoundedIcon />}
+                  data={EDUCATION.map(
+                    ({ institution, dates, qualification, type }) => ({
+                      title: qualification,
+                      establishment: institution,
+                      duration: `${dates.start} - ${dates.end}`,
+                      type,
+                    })
+                  )}
+                />
+              </ScrollAnimation>
             </Grid>
-          </ScrollAnimation>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <ScrollAnimation transitionType="slide" slideDirection="left">
-          <CustomizedTimeline
-            headerTitle="Experience"
-            icon={<WorkRoundedIcon />}
-            data={EXPERIENCE.map(
-              ({ company, title, dates, employment_type }) => ({
-                title: title,
-                establishment: company,
-                duration: `${dates.start} - ${dates.end}`,
-                type: employment_type,
-              })
-            )}
-          />
-        </ScrollAnimation>
-        <ScrollAnimation transitionType="slide" slideDirection="right">
-          <CustomizedTimeline
-            headerTitle="Education"
-            icon={<SchoolRoundedIcon />}
-            data={EDUCATION.map(
-              ({ institution, dates, qualification, type }) => ({
-                title: qualification,
-                establishment: institution,
-                duration: `${dates.start} - ${dates.end}`,
-                type,
-              })
-            )}
-          />
-        </ScrollAnimation>
-      </Grid>
-      <ScrollAnimation transitionType="slide" slideDirection="left">
-        <CustomizedTimeline
-          icon={<CardMembership />}
-          data={RESUME.certifications.map(
-            ({ name, issuer, issued, expiration }) => ({
-              title: name,
-              establishment: issuer,
-              duration: `${issued} - ${expiration}`,
-            })
-          )}
-          headerTitle="Certifications"
-        />
-      </ScrollAnimation>
+          </TabPanel>
+          <TabPanel value="more" sx={{ display: "flex", justifyContent: "center" }}>
+            <ScrollAnimation transitionType="slide" slideDirection="left">
+              <CustomizedTimeline
+                icon={<CardMembership />}
+                data={RESUME.certifications.map(
+                  ({ name, issuer, issued, expiration }) => ({
+                    title: name,
+                    establishment: issuer,
+                    duration: `${issued} - ${expiration}`,
+                  })
+                )}
+                headerTitle="Certifications"
+              />
+            </ScrollAnimation>
 
-      <ScrollAnimation transitionType="slide" slideDirection="right">
-        <CustomizedTimeline
-          icon={<VolunteerActivism />}
-          data={RESUME.volunteering.map(({ title, organization, dates }) => ({
-            title,
-            establishment: organization,
-            duration: dates,
-          }))}
-          headerTitle="Volunteering"
-        />
-      </ScrollAnimation>
+            <ScrollAnimation transitionType="slide" slideDirection="right">
+              <CustomizedTimeline
+                icon={<VolunteerActivism />}
+                data={RESUME.volunteering.map(
+                  ({ title, organization, dates }) => ({
+                    title,
+                    establishment: organization,
+                    duration: dates,
+                  })
+                )}
+                headerTitle="Volunteering"
+              />
+            </ScrollAnimation>
+          </TabPanel>
+        </TabContext>
+      </Grid>
     </Grid>
   );
 };
